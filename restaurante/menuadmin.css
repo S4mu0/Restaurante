@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #574848;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos del encabezado */
+header {
+    background-color: #ff7700;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Estilos de navegación */
+nav {
+    background-color: #b64b1a;
+    padding: 15px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover, .nav-button.active {
+    background-color: #6d0e0e;
+}
+
+/* Botón de administrador */
+.admin-button {
+    background-color: #8B4513;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.admin-button:hover {
+    background-color: #6d0e0e;
+}
+
+.admin-button.active {
+    background-color: #2d5016;
+}
+
+/* Estilos del contenido principal */
+main {
+    padding: 40px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+/* Botón para añadir productos (solo visible en modo admin) */
+.add-item-btn {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: none;
+    margin: 0 auto 30px auto;
+}
+
+.add-item-btn:hover {
+    background-color: #6d0e0e;
+}
+
+/* Estilos de las tarjetas de productos */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-item {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item-content {
+    padding: 20px;
+}
+
+.item-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #8B4513;
+}
+
+.item-description {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.item-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Controles de administración (solo visibles en modo admin) */
+.admin-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.admin-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.edit-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #2980b9;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Modal para agregar/editar productos */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+    color: #8B4513;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #8B4513;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #6d0e0e;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .menu-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .nav-container {
+        flex-wrap: wrap;
+    }
+    
+    .nav-button, .admin-button {
+        margin: 5px;
+        width: 45%;
+        text-align: center;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

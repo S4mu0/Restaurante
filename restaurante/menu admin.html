@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú del Restaurante</title>
+    <link rel="stylesheet" href="menuadmin.css">
+    <script src="menuadmin.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Restaurante Deluxe</h1>
+            <p>Las mejores comidas de Cartagena</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <button class="nav-button active" data-category="all">Menú Principal</button>
+            <button class="nav-button" data-category="food">Comidas</button>
+            <button class="nav-button" data-category="drink">Bebidas</button>
+            <button class="admin-button" id="admin-toggle">Modo Admin</button>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <h2 class="section-title" id="section-title">Menú Principal</h2>
+            
+            <button class="add-item-btn" id="add-item-btn" style="display: none;">Añadir Producto</button>
+            
+            <div class="menu-container" id="menu-container">
+                <!-- Los elementos del menú se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </main>
+    
+    <!-- Modal para agregar/editar productos -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Agregar Producto</h2>
+            <form id="product-form">
+                <div class="form-group">
+                    <label for="product-name">Nombre:</label>
+                    <input type="text" id="product-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Descripción:</label>
+                    <textarea id="product-description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Precio:</label>
+                    <input type="text" id="product-price" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-category">Categoría:</label>
+                    <select id="product-category" required>
+                        <option value="food">Comida</option>
+                        <option value="drink">Bebida</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product-image">URL de la imagen:</label>
+                    <input type="text" id="product-image" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
